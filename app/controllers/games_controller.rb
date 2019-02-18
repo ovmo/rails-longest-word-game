@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'json'
 
 class GamesController < ApplicationController
   def new
@@ -10,7 +9,7 @@ class GamesController < ApplicationController
   def score
     # render plain: "Add to DB restaurant '#{params[:name]}'"
     @letters = params[:letters]
-    @word = params[:word]
+    @word = params[:word].strip
     dictionary = open("https://wagon-dictionary.herokuapp.com/#{@word}")
     json = JSON.parse(dictionary.read)
     @found = json['found']

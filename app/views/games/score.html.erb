@@ -10,7 +10,7 @@
   </p>
   <% else %>
   <p>
-    Sorry but <strong><%= @word.upcase %></strong> cannot be build out of <%= @letters %>
+    Sorry but <strong><%= @word.upcase %></strong> cannot be build out of <%= @letters.split(" ").join(", ") %>
   </p>
   <% end %>
 
