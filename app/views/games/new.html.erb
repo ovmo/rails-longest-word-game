@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Find the longest word you can build out of the given letters</h1>
+  <div class="row">
+    <% @letters.each do |letter| %>
+    <div class="col-md-1 col-2 letter-box text-center">
+      <%= letter %>
+    </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <form action="/score" method="POST" style="width: 100%" class="form-inline">
+       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+       <%= hidden_field_tag :letters, @letters %>
+      <!-- <input type="hidden" name="letters" value="<%= @letters.join('') %>"> -->
+      <input type="text" name="word" placeholder="Please enter the longest word you found in the letters" class="form-control input-full-width">
+      <input type="submit" name="Submit" class="form-control">
+    </form>
+  </div>
+</div>
+<!-- {"message":"welcome","endpoints":["https://wagon-dictionary.herokuapp.com/:word","https://wagon-dictionary.herokuapp.com/autocomplete/:stem"],"total_api_hits":1636567,"words_found":1025975,"autocomplete_hits":290978} -->
